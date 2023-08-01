@@ -64,7 +64,8 @@ def ui():
     args = ([dropdown], [output_area, input_area, dropdown])
     kwargs = {'show_progress': False, 'queue': False}
 
-    shared.gradio['Generate'].click(select, *args, **kwargs)
+    if "Generate" in shared.gradio:
+        shared.gradio["Generate"].click(select, *args, **kwargs)
 
     clear_btn.click(clear, *args, **kwargs)
     reload_btn.click(select, *args, **kwargs)
